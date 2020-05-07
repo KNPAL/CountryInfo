@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterSectionComponent implements OnInit {
 
+  regionList = [
+    { value: 'africa', viewValue: 'Africa' },
+    { value: 'asia', viewValue: 'Asia' },
+    { value: 'oceania', viewValue: 'Oceania' },
+    { value: 'europe', viewValue: 'Europe' },
+    { value: 'americas', viewValue: 'Americas' }
+  ];
   constructor() { }
 
   ngOnInit() {

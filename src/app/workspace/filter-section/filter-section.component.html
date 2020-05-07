@@ -1,1 +1,10 @@
-<p>filter-section works!</p>
+<mat-card class="py-0">
+    <mat-form-field>
+      <mat-label>Region</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let region of regionList" [value]="region.value">
+          {{region.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> 
+</mat-card>
