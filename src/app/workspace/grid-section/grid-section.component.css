@@ -1,3 +1,7 @@
-.gridDiv{
-    overflow: auto;
+tr.mat-footer-row, tr.mat-row {
+    height: 28px;
+}
+
+tr.mat-header-row{
+    height: 40px;
 }

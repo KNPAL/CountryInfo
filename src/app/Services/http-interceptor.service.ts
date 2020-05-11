@@ -14,8 +14,9 @@ export class HttpInterceptorService implements HttpInterceptor {
     const started = Date.now();
     let ok: string;
     request = request.clone({ headers: request.headers.set('x-rapidapi-host', 'restcountries-v1.p.rapidapi.com') });
-    request = request.clone({ headers: request.headers.set('x-rapidapi-key', 'dd98a33b1emsh08461f409ffe4dfp19abd5jsn5cd205c791dd') });
-    request = request.clone({ headers: request.headers.set('Access-Control-Allow-Origin', '*') });
+    request = request.clone({ headers: request.headers.set('X-RapidAPI-Key', 'dd98a33b1emsh08461f409ffe4dfp19abd5jsn5cd205c791dd') });
+    // request = request.clone({ headers: request.headers.set('Access-Control-Allow-Origin', '*') });
+    request = request.clone({ headers: request.headers.set('useQueryString', 'true') });
     return next
       .handle(request)
       .pipe(

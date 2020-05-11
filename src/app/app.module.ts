@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { FilterSectionComponent } from './workspace/filter-section/filter-section.component';
 import { GridSectionComponent } from './workspace/grid-section/grid-section.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GridSectionComponent } from './workspace/grid-section/grid-section.comp
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
