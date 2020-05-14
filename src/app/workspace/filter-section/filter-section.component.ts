@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/Services/common.service';
+import { REGION_LIST } from './../../Services/enum-list';
+
 
 @Component({
   selector: 'app-filter-section',
@@ -9,13 +11,7 @@ import { CommonService } from 'src/app/Services/common.service';
 export class FilterSectionComponent implements OnInit {
 
   selectedRegion = '';
-  regionList = [
-    { value: 'africa', viewValue: 'Africa' },
-    { value: 'asia', viewValue: 'Asia' },
-    { value: 'oceania', viewValue: 'Oceania' },
-    { value: 'europe', viewValue: 'Europe' },
-    { value: 'americas', viewValue: 'Americas' }
-  ];
+  regionList = REGION_LIST;
   constructor(public commonService: CommonService) { }
 
   ngOnInit() {

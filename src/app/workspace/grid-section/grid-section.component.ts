@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpCommonService } from 'src/app/Services/http-common.service';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { CommonApiCallService } from 'src/app/Services/common-api-call.service';
 import { CommonService } from 'src/app/Services/common.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { DISPLAYED_COLUMNS } from './../../Services/enum-list';
 
 @Component({
   selector: 'app-grid-section',
@@ -12,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class GridSectionComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'capital', 'callingCodes', 'region'];
+  displayedColumns: string[] = DISPLAYED_COLUMNS;
   dataSource: any = [];
   constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService) { }
 

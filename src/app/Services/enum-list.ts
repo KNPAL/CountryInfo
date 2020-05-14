@@ -9,3 +9,13 @@ export enum apiList {
     'countryCode' = 'https://restcountries-v1.p.rapidapi.com/alpha/', // ru
     'countryName' = 'https://restcountries-v1.p.rapidapi.com/name/' // India
 }
+
+export const REGION_LIST = [
+    { value: 'africa', viewValue: 'Africa' },
+    { value: 'asia', viewValue: 'Asia' },
+    { value: 'oceania', viewValue: 'Oceania' },
+    { value: 'europe', viewValue: 'Europe' },
+    { value: 'americas', viewValue: 'Americas' }
+];
+
+export const DISPLAYED_COLUMNS = ['name', 'capital', 'callingCodes', 'region'];
