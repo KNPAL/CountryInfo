@@ -1,10 +1,11 @@
 <mat-card class="py-0">
-    <mat-form-field>
-      <mat-label>Region</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let region of regionList" [value]="region.value">
-          {{region.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> 
+  <mat-form-field>
+    <mat-label>Region</mat-label>
+    <mat-select [(value)]="selectedRegion">
+      <mat-option *ngFor="let region of regionList" [value]="region.value">
+        {{region.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> 
+    <button mat-button color="primary" (click)="getGridData()">Search</button>    
 </mat-card>

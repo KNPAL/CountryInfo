@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterSectionComponent implements OnInit {
 
+  selectedRegion = '';
   regionList = [
     { value: 'africa', viewValue: 'Africa' },
     { value: 'asia', viewValue: 'Asia' },
@@ -17,6 +18,10 @@ export class FilterSectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getGridData() {
+    alert(this.selectedRegion);
   }
 
 }

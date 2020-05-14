@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpCommonService } from 'src/app/Services/http-common.service';
 import { HttpClient } from '@angular/common/http';
+import { CommonApiCallService } from 'src/app/Services/common-api-call.service';
 
 @Component({
   selector: 'app-grid-section',
@@ -11,12 +12,11 @@ export class GridSectionComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'capital', 'callingCodes', 'region'];
   dataSource: any = [];
-  constructor(public http: HttpCommonService, private httpc: HttpClient) { }
+  constructor(public commonApiCallService: CommonApiCallService) { }
 
   ngOnInit() {
-    this.httpc.get('https://restcountries-v1.p.rapidapi.com/all').subscribe((data) => {
+    this.commonApiCallService.getCountry().subscribe((data) => {
       this.dataSource = data;
-      // console.log(data);
     });
   }
 }
