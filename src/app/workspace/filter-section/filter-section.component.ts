@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/Services/common.service';
 
 @Component({
   selector: 'app-filter-section',
@@ -15,13 +16,18 @@ export class FilterSectionComponent implements OnInit {
     { value: 'europe', viewValue: 'Europe' },
     { value: 'americas', viewValue: 'Americas' }
   ];
-  constructor() { }
+  constructor(public commonService: CommonService) { }
 
   ngOnInit() {
   }
 
   getGridData() {
-    alert(this.selectedRegion);
+    this.commonService.changeDataSource.emit(this.selectedRegion);
+  }
+
+  restGridData() {
+    this.selectedRegion = '';
+    this.commonService.changeDataSource.emit(this.selectedRegion);
   }
 
 }

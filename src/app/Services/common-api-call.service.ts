@@ -20,8 +20,8 @@ export class CommonApiCallService {
     return this.http.get(apiList.currency);
   }
 
-  getCountryByRegion(): Observable<any> {
-    return this.http.get(apiList.region);
+  getCountryByRegion(region: string): Observable<any> {
+    return this.http.get(apiList.region + region);
   }
 
   getCountryBylanguage(): Observable<any> {

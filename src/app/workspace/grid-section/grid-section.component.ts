@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpCommonService } from 'src/app/Services/http-common.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonApiCallService } from 'src/app/Services/common-api-call.service';
+import { CommonService } from 'src/app/Services/common.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-grid-section',
@@ -12,11 +14,27 @@ export class GridSectionComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'capital', 'callingCodes', 'region'];
   dataSource: any = [];
-  constructor(public commonApiCallService: CommonApiCallService) { }
+  constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService) { }
 
   ngOnInit() {
     this.commonApiCallService.getCountry().subscribe((data) => {
       this.dataSource = data;
+    });
+
+    this.commonService.changeDataSource.subscribe((inputParam) => {
+      if (!!inputParam === true) {
+        this.commonApiCallService.getCountryByRegion(inputParam).subscribe((data) => {
+          this.dataSource = [];
+          this.dataSource = new MatTableDataSource<any>(data);
+          this.dataSource = data;
+        });
+      } else {
+        this.commonApiCallService.getCountry().subscribe((data) => {
+          this.dataSource = [];
+          this.dataSource = new MatTableDataSource<any>(data);
+          this.dataSource = data;
+        });
+      }
     });
   }
 }
