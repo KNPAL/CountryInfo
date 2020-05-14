@@ -9,7 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { FilterSectionComponent } from './workspace/filter-section/filter-section.component';
 import { GridSectionComponent } from './workspace/grid-section/grid-section.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './Services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
