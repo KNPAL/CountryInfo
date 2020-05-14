@@ -6,5 +6,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class CommonService {
 
   changeDataSource: EventEmitter<any> = new EventEmitter<any>();
+  recordCountEmitter: EventEmitter<number> = new EventEmitter <number> ();
+  recordCount: number;
   constructor() { }
 }

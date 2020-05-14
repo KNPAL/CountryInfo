@@ -1,12 +1,28 @@
-<mat-card class="py-0">
-  <mat-form-field>
-    <mat-label>Region</mat-label>
-    <mat-select [(value)]="selectedRegion">
-      <mat-option *ngFor="let region of regionList" [value]="region.value">
-        {{region.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field> 
-    <button mat-button color="primary" (click)="getGridData()">Search</button>    
-    <button mat-button color="primary" (click)="restGridData()">Reset</button>  
+<mat-card class="p-0">
+  <mat-card class="py-0 diplay-inline w-50">
+    <mat-form-field class="pr-5">
+      <mat-label>Region</mat-label>
+      <mat-select [(value)]="selectedRegion" (selectionChange)="onRegionChange($event.value)">
+        <mat-option *ngFor="let region of regionList" [value]="region.value">
+          {{region.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="pl-5">
+      <mat-label>Sub Region</mat-label>
+      <mat-select [(value)]="selectedsubRegion">
+        <mat-option *ngFor="let item of subregionlist" [value]="item.value">
+          {{item.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+  </mat-card>
+  <mat-card class="diplay-inline w-50">
+    <button mat-button color="primary" (click)="getGridData()">Search</button>
+    <button mat-button color="primary" (click)="restGridData()">Reset</button>
+
+    <label>total country :{{count}}</label>
+  </mat-card>
+
 </mat-card>

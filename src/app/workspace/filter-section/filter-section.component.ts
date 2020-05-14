@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { CommonService } from 'src/app/Services/common.service';
-import { REGION_LIST } from './../../Services/enum-list';
+import {
+  REGION_LIST, AFRICA_SUB_REGION_LIST, ASIA_SUB_REGION_LIST, OCEANIA_SUB_REGION_LIST, EUROPE_SUB_REGION_LIST, AMERICA_SUB_REGION_LIST
+} from './../../Services/enum-list';
 
 
 @Component({
@@ -8,13 +10,25 @@ import { REGION_LIST } from './../../Services/enum-list';
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.css']
 })
-export class FilterSectionComponent implements OnInit {
+export class FilterSectionComponent implements OnInit, OnChanges {
 
   selectedRegion = '';
-  regionList = REGION_LIST;
-  constructor(public commonService: CommonService) { }
+  selectedsubRegion = '';
+  count;
+  regionList;
+  subregionlist = [];
+  constructor(public commonService: CommonService) {
+    this.regionList = REGION_LIST;
+  }
 
   ngOnInit() {
+    this.commonService.recordCountEmitter.subscribe((data) => {
+      this.count = data;
+    });
+  }
+
+  ngOnChanges() {
+    this.count = this.commonService.recordCount;
   }
 
   getGridData() {
@@ -24,6 +38,27 @@ export class FilterSectionComponent implements OnInit {
   restGridData() {
     this.selectedRegion = '';
     this.commonService.changeDataSource.emit(this.selectedRegion);
+    this.subregionlist = [];
+  }
+
+  onRegionChange(e) {
+    switch (e) {
+      case 'africa':
+        this.subregionlist = AFRICA_SUB_REGION_LIST;
+        break;
+      case 'asia':
+        this.subregionlist = ASIA_SUB_REGION_LIST;
+        break;
+      case 'oceania':
+        this.subregionlist = OCEANIA_SUB_REGION_LIST;
+        break;
+      case 'europe':
+        this.subregionlist = EUROPE_SUB_REGION_LIST;
+        break;
+      case 'americas':
+        this.subregionlist = AMERICA_SUB_REGION_LIST;
+        break;
+    }
   }
 
 }

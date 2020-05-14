@@ -18,6 +18,7 @@ export class GridSectionComponent implements OnInit {
   ngOnInit() {
     this.commonApiCallService.getCountry().subscribe((data) => {
       this.dataSource = data;
+      this.commonService.recordCountEmitter.emit(this.dataSource.length);
     });
 
     this.commonService.changeDataSource.subscribe((inputParam) => {
@@ -26,12 +27,14 @@ export class GridSectionComponent implements OnInit {
           this.dataSource = [];
           this.dataSource = new MatTableDataSource<any>(data);
           this.dataSource = data;
+          this.commonService.recordCountEmitter.emit(this.dataSource.length);
         });
       } else {
         this.commonApiCallService.getCountry().subscribe((data) => {
           this.dataSource = [];
           this.dataSource = new MatTableDataSource<any>(data);
           this.dataSource = data;
+          this.commonService.recordCountEmitter.emit(this.dataSource.length);
         });
       }
     });
