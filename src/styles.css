@@ -54,3 +54,7 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
 .mat-option-text, .mat-select-value {
     font-family: 'Times New Roman', Times, serif;
 }
+
+.custom-font-size{
+    font-size: 1rem;
+}
