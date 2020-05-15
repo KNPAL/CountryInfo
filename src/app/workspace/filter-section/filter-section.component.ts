@@ -10,7 +10,7 @@ import {
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.css']
 })
-export class FilterSectionComponent implements OnInit, OnChanges {
+export class FilterSectionComponent implements OnInit {
 
   selectedRegion = '';
   selectedsubRegion = '';
@@ -27,21 +27,25 @@ export class FilterSectionComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges() {
-    this.count = this.commonService.recordCount;
-  }
-
   getGridData() {
-    this.commonService.changeDataSource.emit(this.selectedRegion);
+    if (!!this.selectedRegion === true && !!this.selectedsubRegion === false) {
+      this.commonService.changeDataSource.emit({ Region: this.selectedRegion });
+    } else if (!!this.selectedsubRegion === true && !!this.selectedRegion === true) {
+      this.commonService.changeDataSource.emit({ subRegion: this.selectedsubRegion });
+    } else {
+      this.commonService.changeDataSource.emit('');
+    }
   }
 
   restGridData() {
     this.selectedRegion = '';
-    this.commonService.changeDataSource.emit(this.selectedRegion);
+    this.selectedsubRegion = '';
+    this.commonService.changeDataSource.emit('');
     this.subregionlist = [];
   }
 
   onRegionChange(e) {
+    this.selectedsubRegion = '';
     switch (e) {
       case 'africa':
         this.subregionlist = AFRICA_SUB_REGION_LIST;

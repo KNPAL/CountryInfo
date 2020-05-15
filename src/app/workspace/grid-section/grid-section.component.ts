@@ -16,27 +16,50 @@ export class GridSectionComponent implements OnInit {
   constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService) { }
 
   ngOnInit() {
-    this.commonApiCallService.getCountry().subscribe((data) => {
-      this.dataSource = data;
-      this.commonService.recordCountEmitter.emit(this.dataSource.length);
-    });
+    this.getCountryByFilter();
 
     this.commonService.changeDataSource.subscribe((inputParam) => {
-      if (!!inputParam === true) {
+      this.getCountryByFilter(inputParam);
+    });
+  }
+
+  getCountryByFilter(filterObject?: any) {
+    let switchConst = '';
+    let inputParam = '';
+    if (!!filterObject === true) {
+      Object.entries(filterObject).forEach(element => {
+        switchConst += element[0].toLowerCase();
+        inputParam = element[1].toString().toLowerCase();
+      });
+      switchConst += 'true';
+    } else {
+      switchConst = '';
+    }
+    console.log(switchConst);
+    switch (switchConst) {
+      case 'regiontrue':
         this.commonApiCallService.getCountryByRegion(inputParam).subscribe((data) => {
           this.dataSource = [];
           this.dataSource = new MatTableDataSource<any>(data);
           this.dataSource = data;
           this.commonService.recordCountEmitter.emit(this.dataSource.length);
         });
-      } else {
-        this.commonApiCallService.getCountry().subscribe((data) => {
+        break;
+      case 'subregiontrue':
+        this.commonApiCallService.getCountryBySubRegion(inputParam).subscribe((data) => {
           this.dataSource = [];
           this.dataSource = new MatTableDataSource<any>(data);
           this.dataSource = data;
           this.commonService.recordCountEmitter.emit(this.dataSource.length);
         });
-      }
-    });
+        break;
+      default:
+        this.commonApiCallService.getCountry().subscribe((data) => {
+          this.dataSource = data;
+          this.commonService.recordCountEmitter.emit(this.dataSource.length);
+        });
+        break;
+    }
   }
+
 }

@@ -44,7 +44,7 @@ export class CommonApiCallService {
     return this.http.get(apiList.countryName);
   }
 
-  getCountryBySubRegion(): Observable<any> {
-    return this.http.get(apiList.subRegion);
+  getCountryBySubRegion(subregion): Observable<any> {
+    return this.http.get(apiList.subRegion + subregion);
   }
 }
