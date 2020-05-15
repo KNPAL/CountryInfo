@@ -2,6 +2,19 @@ tr.mat-footer-row, tr.mat-row {
     height: 28px;
 }
 
-tr.mat-header-row{
+tr.mat-header-row {
     height: 40px;
+}
+
+mat-paginator {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+    border-top: 1px #58319b solid;
+}
+
+.table-height{
+    position: sticky;
+    height: 360px;
+    overflow: auto;
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonApiCallService } from 'src/app/Services/common-api-call.service';
 import { CommonService } from 'src/app/Services/common.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { DISPLAYED_COLUMNS } from './../../Services/enum-list';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-grid-section',
@@ -12,12 +13,12 @@ import { DISPLAYED_COLUMNS } from './../../Services/enum-list';
 export class GridSectionComponent implements OnInit {
 
   displayedColumns: string[] = DISPLAYED_COLUMNS;
-  dataSource: any = [];
+  dataSource = new MatTableDataSource<any>([]);
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService) { }
 
   ngOnInit() {
     this.getCountryByFilter();
-
     this.commonService.changeDataSource.subscribe((inputParam) => {
       this.getCountryByFilter(inputParam);
     });
@@ -39,27 +40,33 @@ export class GridSectionComponent implements OnInit {
     switch (switchConst) {
       case 'regiontrue':
         this.commonApiCallService.getCountryByRegion(inputParam).subscribe((data) => {
-          this.dataSource = [];
-          this.dataSource = new MatTableDataSource<any>(data);
-          this.dataSource = data;
-          this.commonService.recordCountEmitter.emit(this.dataSource.length);
+          this.setDataSource(data);
+          this.setPaginator(data.length);
         });
         break;
       case 'subregiontrue':
         this.commonApiCallService.getCountryBySubRegion(inputParam).subscribe((data) => {
-          this.dataSource = [];
-          this.dataSource = new MatTableDataSource<any>(data);
-          this.dataSource = data;
-          this.commonService.recordCountEmitter.emit(this.dataSource.length);
+          this.setDataSource(data);
+          this.setPaginator(data.length);
         });
         break;
       default:
         this.commonApiCallService.getCountry().subscribe((data) => {
-          this.dataSource = data;
-          this.commonService.recordCountEmitter.emit(this.dataSource.length);
+          this.setDataSource(data);
+          this.setPaginator(data.length);
         });
         break;
     }
+  }
+
+  setPaginator(gridLength: number) {
+    this.dataSource.paginator = this.paginator;
+    this.paginator.length = gridLength;
+  }
+
+  setDataSource(payload) {
+    this.dataSource = new MatTableDataSource<any>(payload);
+    this.commonService.recordCountEmitter.emit(payload.length);
   }
 
 }

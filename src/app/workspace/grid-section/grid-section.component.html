@@ -1,34 +1,37 @@
 <mat-card class="p-0">
-    <div class="w-100 ">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+    <div class="w-100 ">        
+        <div class="table-height"> 
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
 
-            <!-- Position Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-            <!-- Name Column -->
-            <ng-container matColumnDef="capital">
-                <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Capital </th>
-                <td mat-cell *matCellDef="let element"> {{element.capital}} </td>
-            </ng-container>
-            <!-- Weight Column -->
-            <ng-container matColumnDef="callingCodes">
-                <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Area Code </th>
-                <td mat-cell *matCellDef="let element"> {{element.callingCodes}} </td>
-            </ng-container>
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="region">
-                <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Region </th>
-                <td mat-cell *matCellDef="let element"> {{element.region}} </td>
-            </ng-container>
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="subregion">
-                <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Sub Region </th>
-                <td mat-cell *matCellDef="let element"> {{element.subregion}} </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+                <!-- Position Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="capital">
+                    <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Capital </th>
+                    <td mat-cell *matCellDef="let element"> {{element.capital}} </td>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="callingCodes">
+                    <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Area Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.callingCodes}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="region">
+                    <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Region </th>
+                    <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="subregion">
+                    <th mat-header-cell *matHeaderCellDef class="custom-font-size"> Sub Region </th>
+                    <td mat-cell *matCellDef="let element"> {{element.subregion}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <mat-paginator [pageSizeOptions]="[10,15, 20]" showFirstLastButtons></mat-paginator>
     </div>
 </mat-card>

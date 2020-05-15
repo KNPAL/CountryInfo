@@ -44,6 +44,7 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
 
 .custom-font {
     font-family: 'Times New Roman', Times, serif;
+    color: #673ab7;
 }
 
 .header-font {
@@ -55,6 +56,10 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
     font-family: 'Times New Roman', Times, serif;
 }
 
-.custom-font-size{
+.custom-font-size {
     font-size: 1rem;
+}
+
+.mat-paginator, .mat-select-value {
+    color: #673ab7;
 }
