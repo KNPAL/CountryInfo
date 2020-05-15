@@ -1,20 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+
+body {
     overflow: hidden;
 }
 
-.demoBorder{
-    border:.5px solid black
+.demoBorder {
+    border: .5px solid black
 }
 
-.hp-10{
-    height:10%
+.hp-8 {
+    height: 8%
 }
 
-.hp-7{
-    height:7%
+.hp-7 {
+    height: 7%
 }
 
-.hp-83{
-    height:83%
+.hp-85 {
+    height: 85%
+}
+
+.bg-color {
+    background-color: #673ab7;
+}
+
+mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    border-bottom-color: #b69ee0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.text-color-white {
+    color: white;
+}
+
+.mat-header-cell {
+    color: white;
+    background-color: #673ab7;
+}
+
+.mat-button.mat-primary {
+    border: 1px solid;
+}
+
+.custom-font {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.mat-option-text, .mat-select-value {
+    font-family: 'Times New Roman', Times, serif;
 }
