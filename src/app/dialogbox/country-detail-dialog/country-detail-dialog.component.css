@@ -1,0 +1,20 @@
+.custom-mat-card {
+    display: inline-block;
+    width: 16rem;
+}
+
+.mat-dialog-content {
+    max-height: 100vh;
+    height: 420px;
+}
+
+.table td {
+    line-height: .5;
+}
+
+.table td {
+    border-bottom: 1px solid #673ab7;
+    border-top: 1px solid #673ab7;
+    font-family: 'Times New Roman', Times, serif;
+}
+

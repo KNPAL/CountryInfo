@@ -52,8 +52,13 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
     font-weight: bolder;
 }
 
-.mat-option-text, .mat-select-value {
+.mat-option-text, .mat-select-value, h1, h6, p {
     font-family: 'Times New Roman', Times, serif;
+}
+
+h1,h6{
+    font-weight: 900;
+    /* border-bottom: .25px solid black; */
 }
 
 .custom-font-size {
@@ -62,4 +67,12 @@ mat-footer-row, mat-header-row, mat-row, td.mat-cell, td.mat-footer-cell, th.mat
 
 .mat-paginator, .mat-select-value {
     color: #673ab7;
+}
+
+.cursor-p {
+    cursor: pointer
+}
+
+.card-body {
+    padding: .5rem;
 }

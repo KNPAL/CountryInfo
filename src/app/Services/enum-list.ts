@@ -74,3 +74,7 @@ export const SUB_REGION_LIST = [
     { value: 'Northern America', viewValue: 'Northern America' }
 ];
 export const DISPLAYED_COLUMNS = ['name', 'capital', 'callingCodes', 'region', 'subregion'];
+
+export interface DialogData {
+    country: any;
+}

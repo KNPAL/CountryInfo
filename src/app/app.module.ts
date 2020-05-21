@@ -11,6 +11,7 @@ import { FilterSectionComponent } from './workspace/filter-section/filter-sectio
 import { GridSectionComponent } from './workspace/grid-section/grid-section.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './Services/http-interceptor.service';
+import { CountryDetailDialogComponent } from './dialogbox/country-detail-dialog/country-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     FooterComponent,
     WorkspaceComponent,
     FilterSectionComponent,
-    GridSectionComponent
+    GridSectionComponent,
+    CountryDetailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     MaterialModule,
     HttpClientModule
   ],
+  entryComponents: [CountryDetailDialogComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],

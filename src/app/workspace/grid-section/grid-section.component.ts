@@ -4,6 +4,8 @@ import { CommonService } from 'src/app/Services/common.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { DISPLAYED_COLUMNS } from './../../Services/enum-list';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { CountryDetailDialogComponent } from 'src/app/dialogbox/country-detail-dialog/country-detail-dialog.component';
 
 @Component({
   selector: 'app-grid-section',
@@ -15,7 +17,7 @@ export class GridSectionComponent implements OnInit {
   displayedColumns: string[] = DISPLAYED_COLUMNS;
   dataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService) { }
+  constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getCountryByFilter();
@@ -67,6 +69,17 @@ export class GridSectionComponent implements OnInit {
   setDataSource(payload) {
     this.dataSource = new MatTableDataSource<any>(payload);
     this.commonService.recordCountEmitter.emit(payload.length);
+  }
+
+  openDialog(name) {
+    this.dialog.open(CountryDetailDialogComponent, {
+      data: {
+        country: name
+      },
+      height: '530px',
+      width: '850px',
+      maxWidth: '1020px'
+    });
   }
 
 }
