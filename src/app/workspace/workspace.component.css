@@ -1,7 +1,17 @@
-.gridSection{
-    height:85%; 
+.gridSection {
+    height: 85%;
 }
 
-.filterSection{
+.filterSection {
     height: 15%;
+}
+
+@media only screen and (max-width: 576px) {
+    .gridSection {
+        height: 76%;
+    }
+    
+    .filterSection {
+        height: 24%;
+    }
 }

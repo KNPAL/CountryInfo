@@ -1,5 +1,5 @@
-<mat-card class="py-0 diplay-inline w-50" style="padding-top: 4.5px!important;">
-  <mat-form-field class="pr-5">
+<mat-card class="py-0 diplay-inline w-50 mobile-view-mb-1" style="padding-top: 4.5px!important;">
+  <mat-form-field class="pr-5 mobile-view-width-50">
     <mat-label class="custom-font">Region</mat-label>
     <mat-select [(value)]="selectedRegion" (selectionChange)="onRegionChange($event.value)">
       <mat-option *ngFor="let region of regionList" [value]="region.value">
@@ -7,7 +7,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field class="pl-5">
+  <mat-form-field class="pl-5 mobile-view-width-50 mobile-view-p-0">
     <mat-label class="custom-font">Sub Region</mat-label>
     <mat-select [(value)]="selectedsubRegion">
       <mat-option *ngFor="let item of subregionlist" [value]="item.value">
@@ -17,10 +17,10 @@
   </mat-form-field>
 
 </mat-card>
-<mat-card class="diplay-inline w-50 align-items-center justify-content-center">
-  <button mat-button color="primary" class="mr-5 custom-font" (click)="getGridData()">Search</button>
-  <button mat-button color="primary" class="mr-5 custom-font" (click)="restGridData()">Reset</button>
-  <div class="pl-5 ml-5">
+<mat-card class="diplay-inline w-50 align-items-center justify-content-center mobile-view-p-8">
+  <button mat-button color="primary" class="mr-5 custom-font mobile-view-p-0 mobile-view-m-0 mobile-view-ml-16" (click)="getGridData()">Search</button>
+  <button mat-button color="primary" class="mr-5 custom-font mobile-view-p-0 mobile-view-m-0 mobile-view-ml-16" (click)="restGridData()">Reset</button>
+  <div class="pl-5 ml-5 mobile-view-p-0 mobile-view-m-0 mobile-view-ml-16">
     <label class="custom-font m-0">Total Country :{{count}}</label>
   </div>
 </mat-card>

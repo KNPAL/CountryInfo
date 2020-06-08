@@ -76,3 +76,18 @@ h1,h6{
 .card-body {
     padding: .5rem;
 }
+
+@media only screen and (max-width: 576px) {
+    /* .hp-8 {
+        height: 6%
+    }
+    
+    .hp-7 {
+        height: 8%
+    }
+    
+    .hp-85 {
+        height: 85%
+    } */
+    
+}

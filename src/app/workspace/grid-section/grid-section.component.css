@@ -18,3 +18,11 @@ mat-paginator {
     height: 360px;
     overflow: auto;
 }
+
+@media only screen and (max-width: 576px) {
+    .table-height{
+        position: sticky;
+        height: 315px;
+        overflow: auto;
+    }
+}

@@ -1,4 +1,27 @@
-.diplay-inline{
+.diplay-inline {
     display: inline-flex;
 }
 
+@media only screen and (max-width: 576px) {
+    .w-50 {
+        width: 100%!important;
+    }
+    .mobile-view-width-50 {
+        width: 50%!important;
+    }
+    .mobile-view-p-0 {
+        padding: 0px!important;
+    }
+    .mobile-view-m-0 {
+        margin: 0px!important;
+    }
+    .mobile-view-p-8 {
+        padding: 8px!important;
+    }
+    .mobile-view-ml-16 {
+        margin-left: 16px!important;
+    }
+    .mobile-view-mb-1{
+        margin-bottom: 1px!important;
+    }
+}
