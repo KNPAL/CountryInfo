@@ -22,7 +22,7 @@ mat-paginator {
 @media only screen and (max-width: 576px) {
     .table-height{
         position: sticky;
-        height: 315px;
+        height: 300px;
         overflow: auto;
     }
 }
