@@ -1,6 +1,6 @@
 <h1 class="custom-font" mat-dialog-title>{{countryData.name}}</h1>
 <div mat-dialog-content>
-  <div class="col-md-12 col-lg-12">
+  <!-- <div class="col-md-12 col-lg-12 col-sm-8"> -->
     <div class="row">
       <table class="table">
         <tr>
@@ -28,7 +28,7 @@
           <td>{{countryData.timezones}}</td>
         </tr>
         <tr>
-          <td>Geographic Coordinate</td>
+          <td> Coordinate</td>
           <td> {{countryData.latlng}} </td>
         </tr>
         <tr>
@@ -39,10 +39,10 @@
           <td>Population</td>
           <td> {{countryData.population}} </td>
         </tr>
-        <tr>
-          <td>Other Name</td>
+        <!-- <tr>
+          <td>Alias</td>
           <td> {{countryData.altSpellings}} </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Demonym</td>
           <td> {{countryData.demonym}} </td>
@@ -53,5 +53,5 @@
         </tr>
       </table>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
