@@ -2,6 +2,11 @@
     display: inline-flex;
 }
 
+
+::ng-deep .text-highlight {
+    background: yellow;
+}
+
 @media only screen and (max-width: 576px) {
     .w-50 {
         width: 100%!important;

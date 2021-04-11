@@ -16,6 +16,7 @@ export class GridSectionComponent implements OnInit {
 
   displayedColumns: string[] = DISPLAYED_COLUMNS;
   dataSource = new MatTableDataSource<any>([]);
+  query_conversation = 'a';
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(public commonApiCallService: CommonApiCallService, public commonService: CommonService, public dialog: MatDialog) { }
 

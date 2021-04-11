@@ -12,6 +12,8 @@ import { GridSectionComponent } from './workspace/grid-section/grid-section.comp
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './Services/http-interceptor.service';
 import { CountryDetailDialogComponent } from './dialogbox/country-detail-dialog/country-detail-dialog.component';
+ import { HighlightSearchDirective } from './directives/highlight-search.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { CountryDetailDialogComponent } from './dialogbox/country-detail-dialog/
     WorkspaceComponent,
     FilterSectionComponent,
     GridSectionComponent,
-    CountryDetailDialogComponent
+    CountryDetailDialogComponent,
+    HighlightSearchDirective
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   entryComponents: [CountryDetailDialogComponent],
   providers: [
