@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,7 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
 import { CountryDetailDialogComponent } from './dialogbox/country-detail-dialog/country-detail-dialog.component';
  import { HighlightSearchDirective } from './directives/highlight-search.directive';
 import { FormsModule } from '@angular/forms';
+import { GlobalErrorHandlerService } from './Services/global-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
   ],
   entryComponents: [CountryDetailDialogComponent],
   providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]

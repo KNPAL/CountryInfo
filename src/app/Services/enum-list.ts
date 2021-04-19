@@ -1,5 +1,5 @@
 export enum apiList {
-    'allcountry' = 'https://restcountries-v1.p.rapidapi.com/all',
+    'allcountry' = 'https://restcountries-v1.p.rapidapi.com/all2222222222',
     'currency' = 'https://restcountries-v1.p.rapidapi.com/currency/', // NOK
     'region' = 'https://restcountries-v1.p.rapidapi.com/region/', // africa
     'lang' = 'https://restcountries-v1.p.rapidapi.com/lang/', // et

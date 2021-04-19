@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -13,14 +13,14 @@ export class HttpCommonService {
   get(url: string): Observable<any> {
     return this.http.get(url).pipe(map(res => this.setPayload(res)))
       .pipe(catchError((err) => {
-        return of(err);
+        return throwError(err);
       }));
   }
 
   post(url: string, data): Observable<any> {
     return this.http.post(url, data).pipe(map(this.setPayload))
       .pipe(catchError((error) => {
-        return of(error);
+        return throwError(error);
       }));
   }
 
@@ -28,12 +28,12 @@ export class HttpCommonService {
     if (!!option === true) {
       return this.http.delete(url, option).pipe(map(response => response))
         .pipe(catchError((error) => {
-          return of(error);
+          return throwError(error);
         }));
     } else {
       return this.http.delete(url).pipe(map(response => response))
         .pipe(catchError((error) => {
-          return of(error);
+          return throwError(error);
         }));
     }
 
